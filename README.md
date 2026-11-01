@@ -1,5 +1,13 @@
 # fMRI Quality Explorer
 
+**In short:** I checked eight public fMRI scans (adults watching a short Pixar film) before
+analyzing them. One scan produced a completely flat signal in a temporal-lobe region. Tracing it
+back showed an independent brain mask for that scan contained none of the region. Checking all eight
+participants turned up a second scan, sub-pixar123, whose results looked normal but whose mask
+covered only 26% and 8% of two nearby regions. A published reanalysis of the same dataset
+excluded both participants for poor coverage. The lesson: a result the software can compute is
+not necessarily a result you can trust.
+
 A reproducible Python workflow and Streamlit app for reviewing public movie-watching
 fMRI data from eight adults. It inventories scans, checks data integrity, investigates
 brain coverage and motion, and compares regional correlations under one fixed motion rule.
