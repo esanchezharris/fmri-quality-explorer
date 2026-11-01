@@ -79,8 +79,8 @@ STAGE_JS = """() => {
  <div class="gif-parcel" data-region="7"><span>Atlas region 7</span>Precentral gyrus</div>
  <div class="gif-parcel" data-region="21"><span>Atlas region 21</span>Angular gyrus</div>
  <div class="gif-parcel" data-region="48"><span>Atlas region 48</span>Occipital pole</div>
- </div><p id="gif-caption">Rotating mean BOLD · atlas selections, not activation</p>
- <p id="gif-credit">Harvard–Oxford cortical atlas · ds000228 · NiiVue 0.69.0</p></footer>`;
+ </div><p id="gif-caption">Rotating view of the average fMRI image</p>
+ <p id="gif-credit">Atlas selections, not activation · Harvard–Oxford cortical atlas · ds000228 · NiiVue 0.69.0</p></footer>`;
  document.body.append(stage); document.getElementById('gif-canvas').append(canvas);
  const nv=window.coverageExplorer.viewer;
  nv.opts.isOrientCube=true; nv.opts.textHeight=.026;
@@ -292,7 +292,9 @@ def render_compact(work: Path, destination: Path) -> None:
             color = (176 + round(44 * active), 195 - round(39 * active), 205 - round(153 * active))
             x, y = 18 + (label_index % 2) * 181, 374 + (label_index // 2) * 23
             draw.text((x, y), f"{region_id}  {label}", font=fonts[12], fill=color)
-        draw.text((18, 434), "Rotating mean BOLD", font=caption_font, fill=neutral)
+        draw.text(
+            (18, 434), "Rotating view of the average fMRI image", font=caption_font, fill=neutral
+        )
         draw.text((18, 456), "Atlas selections, not activation", font=fonts[13], fill=neutral)
         draw.text((18, 493), "Harvard–Oxford · ds000228", font=fonts[12], fill=secondary)
         draw.text((18, 511), "NiiVue 0.69.0 · CC BY-SA 4.0", font=fonts[12], fill=secondary)
@@ -404,6 +406,7 @@ def render_compact(work: Path, destination: Path) -> None:
     manifest = dict(
         generated_at_utc=datetime.now(timezone.utc).isoformat(),
         artifact=destination.name,
+        caption="Rotating view of the average fMRI image",
         output_bytes=destination.stat().st_size,
         output_sha256=sha256(destination),
         source_full_gif_sha256=full_before,
@@ -544,6 +547,7 @@ def main():
     manifest = dict(
         generated_at_utc=datetime.now(timezone.utc).isoformat(),
         artifact="scan-rotation.gif",
+        caption="Rotating view of the average fMRI image",
         participant=participant,
         source=source,
         source_filename=lineage["source_filename"],

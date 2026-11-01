@@ -24,7 +24,7 @@ explicitly unavailable results.
   <source media="(max-width: 560px) and (prefers-reduced-motion: reduce)" srcset="docs/images/scan-rotation-compact.png">
   <source media="(prefers-reduced-motion: reduce)" srcset="docs/images/scan-rotation-poster.png">
   <source media="(max-width: 560px)" srcset="docs/images/scan-rotation-compact.gif">
-  <img src="docs/images/scan-rotation.gif" alt="Rotating real mean BOLD with four atlas regions highlighted; atlas selections, not activation" width="800">
+  <img src="docs/images/scan-rotation.gif" alt="Rotating view of the average fMRI image with atlas regions highlighted; atlas selections, not activation" width="800">
 </picture>
 
 The 12-second loop shows sub-pixar125's independent SPM8 mean BOLD and four atlas parcels.

@@ -1,6 +1,7 @@
 {
-  "generated_at_utc": "2026-11-01T21:22:18.425618+00:00",
+  "generated_at_utc": "2026-11-01T21:31:55.990569+00:00",
   "artifact": "scan-rotation.gif",
+  "caption": "Rotating view of the average fMRI image",
   "participant": "sub-pixar125",
   "source": "archive",
   "source_filename": "sub-pixar125_task-pixar_run-001_swrf_bold.nii.gz",
@@ -99,8 +100,8 @@
   "representation": "Full-run mean BOLD, rotating camera; binary atlas selections fade. Not activation.",
   "orientation": "Uses saved supplied coordinates and existing NiiVue convention; no reorientation or registration.",
   "cyclic_parameterization": "phase=(index mod 240)/240; azimuth=120+360*phase; elevation=15+5*sin(2*pi*phase); parcel opacity=.86*sin(pi*local_phase)^2",
-  "output_sha256": "07623cae2e84b34410da1b3ce1877a975060baf4ff50c1b372d2335664ff4367",
-  "output_bytes": 10906492,
+  "output_sha256": "30747100fd7e81ae5918f7a4547d84cf075ec929a9daf2bc6e422df571f16765",
+  "output_bytes": 10720008,
   "validation": {
     "dimensions": [
       800,
@@ -117,10 +118,10 @@
     "palette_dither": "none",
     "shared_input_palette": true,
     "decoded_peak_highlight_pixels": {
-      "1": 32440,
-      "7": 13773,
-      "21": 8806,
-      "48": 5443
+      "1": 32340,
+      "7": 13711,
+      "21": 8787,
+      "48": 5414
     },
     "closure_frame_rgb_mean_absolute_difference": 0.0,
     "closure_frame_pixel_identical": true,
@@ -133,12 +134,12 @@
       "before_seam": 0.4948888888888889
     },
     "decoded_adjacent_frame_mean_absolute_difference": {
-      "minimum": 0.42373819444444444,
-      "median": 0.5492003472222222,
-      "maximum": 0.8848083333333333,
-      "seam": 0.5115861111111111,
-      "first_step": 0.5221958333333333,
-      "before_seam": 0.5028388888888888
+      "minimum": 0.4108125,
+      "median": 0.5436961805555556,
+      "maximum": 0.9046652777777777,
+      "seam": 0.5110604166666667,
+      "first_step": 0.5207763888888889,
+      "before_seam": 0.5031736111111111
     }
   }
 }
