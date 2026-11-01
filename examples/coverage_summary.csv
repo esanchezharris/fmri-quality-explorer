@@ -1,0 +1,9 @@
+participant_id,primary_status,tutorial_r14_grid_varying_voxels,tutorial_r14_grid_voxels,tutorial_r37_grid_varying_voxels,tutorial_r37_grid_voxels,spm8_r14_atlas_mask_voxels,spm8_r14_atlas_voxels,spm8_r37_atlas_mask_voxels,spm8_r37_atlas_voxels,spm8_mask_nonfinite_voxels
+sub-pixar123,complete,47,82,20,76,171,647,50,610,0
+sub-pixar124,analysis_unavailable,0,82,3,76,0,647,0,610,0
+sub-pixar125,complete,82,82,72,76,636,647,559,610,0
+sub-pixar126,complete,78,82,76,76,638,647,604,610,0
+sub-pixar127,complete,82,82,76,76,640,647,597,610,0
+sub-pixar128,complete,82,82,75,76,602,647,564,610,0
+sub-pixar129,complete,73,82,52,76,637,647,599,610,0
+sub-pixar130,complete,81,82,68,76,635,647,590,610,152
