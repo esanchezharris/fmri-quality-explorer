@@ -1,0 +1,15 @@
+{
+  "name": "@niivue/niivue",
+  "version": "0.69.0",
+  "license": "BSD-2-Clause",
+  "source_url": "https://registry.npmjs.org/@niivue/niivue/-/niivue-0.69.0.tgz",
+  "npm_integrity": "sha512-YMjQvJgD1W2b7DuoxkwlC4VxbrgIePRJ5qyQzXKxi2v2MBVg285P/CIQyg46oDDGDIcaNlbd+MhtO/edMbXJkA==",
+  "archive_sha256": "6e9a6a471b428eb3b258a0086beca9187d95e43a781a39e8a519c6da246af485",
+  "files": {
+    "NiiVue-LICENSE.txt": "604be23eceeef93996165e2cd46eefd4d713f98f1b4a5414ab109516dc1b30bf",
+    "niivue.esm.js": "bcb456b66a26e20126b7257c2b6071f48b347b7f910f99bca26721a71a96cbed",
+    "niivue-0.69.0.min.js": "f83a59526eb34aa7b6b4952c83121bbda54f60700ca86096d847cbb0b9358549"
+  },
+  "transformation": "JSON-decode and percent-decode the npm min entry esm string; no library code modifications.",
+  "license_source_url": "https://raw.githubusercontent.com/niivue/niivue/main/LICENSE"
+}

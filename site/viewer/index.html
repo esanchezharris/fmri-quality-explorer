@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>fMRI Quality Explorer</title><link rel="stylesheet" href="explorer.css"></head>
+<body>
+<main class="explorer">
+  <header class="explorer-heading">
+    <div><h2>Coverage and motion</h2><p>Inspect source observations, spatial support and motion exclusions.</p></div>
+    <div class="scan-label"><strong id="participant-name"></strong><span id="acquisition-label"></span></div>
+  </header>
+  <div class="controls">
+    <label class="region-control">Atlas region<select id="region-select" aria-label="Atlas region"></select></label>
+    <fieldset class="source-control"><legend>Evidence layer</legend><div class="segmented"><button id="source-tutorial" aria-pressed="true">4-mm tutorial</button><button id="source-archive" aria-pressed="false">2-mm SPM8 archive</button></div></fieldset>
+  </div>
+  <section class="workspace" aria-label="Spatial evidence">
+    <article class="brain-panel">
+      <div class="brain-heading"><div><h3>Regional view</h3><span id="image-context"></span></div><div class="view-buttons"><button id="view-slices" aria-pressed="true">Slices</button><button id="view-3d" aria-pressed="false">3-D</button></div></div>
+      <div class="display-tools"><label for="slice-plane">Plane<select id="slice-plane"><option value="coronal" selected>Coronal</option><option value="axial">Axial</option><option value="sagittal">Sagittal</option><option value="all">All slices</option></select></label><div class="zoom-tools"><span>Zoom</span><button id="zoom-out" aria-label="Zoom out">−</button><button id="zoom-in" aria-label="Zoom in">+</button></div><button id="enlarge-view" aria-pressed="false">Enlarge</button></div>
+      <div class="canvas-wrap"><canvas id="coverage-canvas" aria-label="Interactive mean-BOLD brain viewer" tabindex="0"></canvas><div id="viewer-message" role="status" class="viewer-message">Loading the brain viewer…</div></div>
+      <div class="sampling-tools"><input type="checkbox" id="smooth-image" checked><label for="smooth-image">Smooth 2-D BOLD display only</label><span>ROI and mask counts stay unchanged</span></div>
+      <div class="brain-tools"><div class="overlay-controls"><label><input type="checkbox" id="show-region" checked><i class="swatch roi"></i> Region</label><label><input type="checkbox" id="show-support"><i class="swatch support"></i><span id="overlay-label">Varying centers</span></label></div><div class="side-focus"><span>Focus</span><button id="focus-left">Left</button><button id="focus-right" aria-pressed="true">Right</button><button id="reset-view" title="Return to the selected region">Reset</button></div></div>
+      <div class="brain-caption"><span id="crosshair-location">Supplied MNI coordinates</span><span>Click a parcel to select it; scroll through slices. Drag to rotate in 3-D.</span></div>
+      <p id="resolution-note" class="resolution-note"></p>
+    </article>
+    <aside class="evidence-panel">
+      <section class="support-section"><div class="section-heading"><h3 id="support-title">Varying voxel centers</h3><span class="source-tag" id="support-source"></span></div><p id="support-definition" class="definition"></p><div id="side-bars"></div><div id="whole-support" class="whole-support"></div><p id="support-note" class="note"></p></section>
+      <section class="result-section"><h3>Saved primary correlations</h3><div id="result-status" class="result-status"></div><p id="result-reason"></p><div id="retention-pairs" class="retention-pairs"></div><p class="note">A numerical result does not certify spatial coverage or biological accuracy.</p></section>
+    </aside>
+  </section>
+  <section class="time-panel" aria-label="Original acquisition time">
+    <div class="chart-heading"><div><h3>Regional signal</h3><span id="signal-description"></span></div><span id="signal-state" class="signal-state"></span></div>
+    <svg id="signal-chart" class="chart signal-chart" viewBox="0 0 980 150" role="img" aria-label="Uncleaned regional signal over original acquisition time"></svg>
+    <div class="chart-heading motion-heading"><div><h3>Framewise displacement</h3><span>Tutorial fMRIPrep confounds; fixed rule FD &gt; 0.5 mm</span></div><span id="fd-denominator"></span></div>
+    <svg id="motion-chart" class="chart motion-chart" viewBox="0 0 980 120" role="img" aria-label="Framewise displacement with original-time exclusion shading"></svg>
+    <div class="time-controls"><button id="play-cursor" aria-pressed="false">Play cursor</button><label for="frame-range" class="visually-hidden">Original acquisition frame</label><input id="frame-range" type="range" min="0" step="1" value="0"><output id="frame-readout" for="frame-range"></output></div>
+    <div class="frame-evidence"><span id="fd-readout"></span><span id="baseline-state"></span><span id="censored-state"></span><span class="time-legend"><i class="common-exclusion"></i> Common exclusion <i class="fd-exclusion"></i> Additional FD exclusion</span></div>
+    <p class="mean-note">The brain panel shows the mean of the full run. The cursor inspects time series and exclusions; it does not animate brain activity.</p>
+  </section>
+  <footer class="explorer-footer"><details><summary>Measurements and source provenance</summary><div id="source-details"></div><p>No new cleaning, registration, censoring rule or connectivity calculation. The SPM8 archive is independent of the tutorial fMRIPrep derivative. Unknown mask membership stays unknown. Empty strata are unavailable.</p><p>Viewer: NiiVue 0.69.0, BSD-2-Clause, bundled locally. Harvard–Oxford atlas; original study Richardson et al. (2018), ds000228.</p><details><summary>NiiVue license</summary><pre class="license-text">BSD 2-Clause License
+
+Copyright (c) 2021, Niivue
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</pre></details></details><div class="exports"><button id="export-series">Download series CSV</button><button id="export-evidence">Download evidence JSON</button></div></footer>
+</main>
+<script type="module" src="explorer.js"></script>
+</body></html>

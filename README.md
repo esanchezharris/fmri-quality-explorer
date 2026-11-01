@@ -1,6 +1,10 @@
 # fMRI Quality Explorer
 
-**In short:** I checked eight public fMRI scans (adults watching a short Pixar film) before
+**[Open the interactive demo →](https://esanchezharris.github.io/fmri-quality-explorer/)**
+Explore all eight participants in your browser, rotate the brain, inspect atlas regions,
+and download saved observations. No installation or account required.
+
+I checked eight public fMRI scans (adults watching a short Pixar film) before
 analyzing them. One scan produced a completely flat signal in a temporal-lobe region. Tracing it
 back showed an independent brain mask for that scan contained none of the region. Checking all eight
 participants turned up a second scan, sub-pixar123, whose results looked normal but whose mask
@@ -15,6 +19,15 @@ Reports and exports retain source identities, original frame indices, exclusions
 explicitly unavailable results.
 
 ![fMRI Quality Explorer running on saved real data](docs/images/app.png)
+
+![Rotating real mean BOLD with four atlas regions highlighted; atlas selections, not activation](docs/images/scan-rotation.gif)
+
+The 12-second loop shows sub-pixar125's independent SPM8 mean BOLD and four atlas parcels.
+The normalized 2-mm grid already has 5-mm smoothing; the color is an atlas selection,
+not an activation result. Harvard–Oxford atlas adaptation and GIF: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+The hosted edition is a browser-only viewer of verified saved artifacts. The complete
+Python/Streamlit workflow is reproduced below. [Hosting and animation details](docs/HOSTED_DEMO.md).
 
 ## What the data revealed
 
@@ -130,7 +143,8 @@ Data: Richardson, Lisandrelli, Riobueno-Naylor & Saxe (2018), *Development of th
 from age three to twelve years*, through Nilearn's OSF-hosted development-fMRI derivative.
 Its documented origin is OpenNeuro ds000228 version 1.0.0; that is not a claimed version of
 the OSF derivative. Downloaded source images, QA source files, analysis caches and local
-filesystem paths are not redistributed here. Sources and available version information
+filesystem paths are not redistributed here. The hosted demo includes reviewed derived
+display means, atlas labels, mask membership and saved observations. Sources and available version information
 are recorded by the workflow.
 
 Adapted methods: Nilearn fetching, atlas-based extraction, fMRIPrep nuisance selection and

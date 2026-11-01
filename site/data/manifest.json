@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "data_kind": "saved_real_results_demo",
+  "participants": [
+    {
+      "participant_id": "sub-pixar123",
+      "file": "data/sub-pixar123.json",
+      "sha256": "affe5f5a6667821f9884e778aa5a5b391b672759c7d041728087397989ca5f72",
+      "bytes": 2320531,
+      "summary": {
+        "participant_id": "sub-pixar123",
+        "scan_key": "sub-pixar123_task-pixar",
+        "processing_status": "complete",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.15998904961317365,
+        "high_fd_count": 1,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 166,
+        "censored_retained_minutes": 5.533333333333333,
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.004902040736652661",
+        "max_absolute_change": "0.04313493326305673",
+        "mean_signed_change": "0.0018681697062094785",
+        "edge_similarity": "0.999412843422801"
+      },
+      "comparison": {
+        "scan_key": "sub-pixar123_task-pixar",
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.004902040736652661",
+        "max_absolute_change": "0.04313493326305673",
+        "mean_signed_change": "0.0018681697062094785",
+        "edge_similarity": "0.999412843422801"
+      },
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar123/frames.csv",
+          "sha256": "3ce696d43455aac08beee8b6697583fbc1ffd289d97ae32436760c3f5670f488",
+          "primary_relative": "scans/sub-pixar123_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar123/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar123_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar123/methods.json",
+          "sha256": "45733c07bb03926779936e46764b6c90e61d20123f250e185680d95348c5a513",
+          "primary_relative": "scans/sub-pixar123_task-pixar/methods.json"
+        },
+        "matrices.png": {
+          "file": "data/sub-pixar123/matrices.png",
+          "sha256": "2aa6cdc9e4e2d05eca8a913c06362239aef4b6ebc20389e3a59dbf023582de24",
+          "primary_relative": "scans/sub-pixar123_task-pixar/matrices.png"
+        },
+        "correlation_baseline.csv": {
+          "file": "data/sub-pixar123/correlation_baseline.csv",
+          "sha256": "e997c04fc5e5f6f4335ad9639fc53837c46ec2eadd8f032f07e0f712d2b8cb2b",
+          "primary_relative": "scans/sub-pixar123_task-pixar/correlation_baseline.csv"
+        },
+        "correlation_censored.csv": {
+          "file": "data/sub-pixar123/correlation_censored.csv",
+          "sha256": "6453daa3fc252be8be37794a5559e8adca7bd8a5f313d720d10fd1c58f8fc505",
+          "primary_relative": "scans/sub-pixar123_task-pixar/correlation_censored.csv"
+        }
+      }
+    },
+    {
+      "participant_id": "sub-pixar124",
+      "file": "data/sub-pixar124.json",
+      "sha256": "42244e3fea486b952358ab7e8ba238184ae7bb5fc942b8cf99b798cb58e7b5a4",
+      "bytes": 2232220,
+      "summary": {
+        "participant_id": "sub-pixar124",
+        "scan_key": "sub-pixar124_task-pixar",
+        "processing_status": "analysis_unavailable",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.531987330245509,
+        "high_fd_count": 63,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 104,
+        "censored_retained_minutes": 3.466666666666667,
+        "n_unique_edges": "",
+        "mean_absolute_change": "",
+        "max_absolute_change": "",
+        "mean_signed_change": "",
+        "edge_similarity": ""
+      },
+      "comparison": null,
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar124/frames.csv",
+          "sha256": "97e96e05d1691ff3711d80f65458c77cba508b10d38c0ae4765907b1403bbd5d",
+          "primary_relative": "scans/sub-pixar124_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar124/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar124_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar124/methods.json",
+          "sha256": "09588404c3564a46c5ab22c9d8112c544217ccb2c0d7d065fd9a4d2d30b3818c",
+          "primary_relative": "scans/sub-pixar124_task-pixar/methods.json"
+        }
+      }
+    },
+    {
+      "participant_id": "sub-pixar125",
+      "file": "data/sub-pixar125.json",
+      "sha256": "cfa13e8895dd3bd30f03d777bb0b2f5dbc7e51e0848ab02613ee31dd9a4014e3",
+      "bytes": 2361008,
+      "summary": {
+        "participant_id": "sub-pixar125",
+        "scan_key": "sub-pixar125_task-pixar",
+        "processing_status": "complete",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.1492029157317365,
+        "high_fd_count": 8,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 159,
+        "censored_retained_minutes": 5.3,
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.06223356770560154",
+        "max_absolute_change": "0.4369304672975403",
+        "mean_signed_change": "0.03696978437852873",
+        "edge_similarity": "0.9302161444840972"
+      },
+      "comparison": {
+        "scan_key": "sub-pixar125_task-pixar",
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.06223356770560154",
+        "max_absolute_change": "0.4369304672975403",
+        "mean_signed_change": "0.03696978437852873",
+        "edge_similarity": "0.9302161444840972"
+      },
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar125/frames.csv",
+          "sha256": "2c8aeabbbf5a3e72de3658334990459ebe9662e3e8f5c3d2604d08cf77b488a3",
+          "primary_relative": "scans/sub-pixar125_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar125/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar125_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar125/methods.json",
+          "sha256": "273bed9bf991f009f8811af75d6eeac3e35bda2307256f6141e6a3dd77909a39",
+          "primary_relative": "scans/sub-pixar125_task-pixar/methods.json"
+        },
+        "matrices.png": {
+          "file": "data/sub-pixar125/matrices.png",
+          "sha256": "dc44c8b1d9870104ab56b4d39031301f439abb4442a2e4778fe96cc5c4fdb087",
+          "primary_relative": "scans/sub-pixar125_task-pixar/matrices.png"
+        },
+        "correlation_baseline.csv": {
+          "file": "data/sub-pixar125/correlation_baseline.csv",
+          "sha256": "555e385bb5e862bff49dae5f0694333ad4744733cb4e1f0f4f347c9d7c842563",
+          "primary_relative": "scans/sub-pixar125_task-pixar/correlation_baseline.csv"
+        },
+        "correlation_censored.csv": {
+          "file": "data/sub-pixar125/correlation_censored.csv",
+          "sha256": "f9ec9cfad51f3f040a5cc46653f5b5e0f8e9ea35a3fb9f402c21ec55d25df794",
+          "primary_relative": "scans/sub-pixar125_task-pixar/correlation_censored.csv"
+        }
+      }
+    },
+    {
+      "participant_id": "sub-pixar126",
+      "file": "data/sub-pixar126.json",
+      "sha256": "eae07978a77ab3c25084e765f85bdfd7bd6a713c9e395106aed6357cf07e3034",
+      "bytes": 2393863,
+      "summary": {
+        "participant_id": "sub-pixar126",
+        "scan_key": "sub-pixar126_task-pixar",
+        "processing_status": "complete",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.19090899578622755,
+        "high_fd_count": 3,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 164,
+        "censored_retained_minutes": 5.466666666666667,
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.016769177380120345",
+        "max_absolute_change": "0.0792004997157498",
+        "mean_signed_change": "-0.013347422592842113",
+        "edge_similarity": "0.9964792134938818"
+      },
+      "comparison": {
+        "scan_key": "sub-pixar126_task-pixar",
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.016769177380120345",
+        "max_absolute_change": "0.0792004997157498",
+        "mean_signed_change": "-0.013347422592842113",
+        "edge_similarity": "0.9964792134938818"
+      },
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar126/frames.csv",
+          "sha256": "dfe1287d08d05903ce39aee11440d00499cb8c47cc200906280433191f9ff630",
+          "primary_relative": "scans/sub-pixar126_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar126/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar126_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar126/methods.json",
+          "sha256": "51b81349b75ed7b95113044cfdc72a96926482c8296da2e67efddea79c564d32",
+          "primary_relative": "scans/sub-pixar126_task-pixar/methods.json"
+        },
+        "matrices.png": {
+          "file": "data/sub-pixar126/matrices.png",
+          "sha256": "13ec6febb5d2aa7cca3a9c69f1924694252c9ea198b954bd168e6575894ff3b9",
+          "primary_relative": "scans/sub-pixar126_task-pixar/matrices.png"
+        },
+        "correlation_baseline.csv": {
+          "file": "data/sub-pixar126/correlation_baseline.csv",
+          "sha256": "558a67d8b3288d65e5c919b3dabf61a174dea42fd9d574351084a7f6fc53ac76",
+          "primary_relative": "scans/sub-pixar126_task-pixar/correlation_baseline.csv"
+        },
+        "correlation_censored.csv": {
+          "file": "data/sub-pixar126/correlation_censored.csv",
+          "sha256": "30a387f2c15c3c8db9d2b04fbcd411675cc4856d5bc2c9c83e450bfe6a00dfb9",
+          "primary_relative": "scans/sub-pixar126_task-pixar/correlation_censored.csv"
+        }
+      }
+    },
+    {
+      "participant_id": "sub-pixar127",
+      "file": "data/sub-pixar127.json",
+      "sha256": "00e535f6a3ccfb6de9fc1810b344358ebb03bf42b3b36cf298402a2bd9896542",
+      "bytes": 2373458,
+      "summary": {
+        "participant_id": "sub-pixar127",
+        "scan_key": "sub-pixar127_task-pixar",
+        "processing_status": "complete",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.19743182952275448,
+        "high_fd_count": 6,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 161,
+        "censored_retained_minutes": 5.366666666666666,
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.026484163126484887",
+        "max_absolute_change": "0.16257810024836433",
+        "mean_signed_change": "0.002218300055039324",
+        "edge_similarity": "0.988264840857033"
+      },
+      "comparison": {
+        "scan_key": "sub-pixar127_task-pixar",
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.026484163126484887",
+        "max_absolute_change": "0.16257810024836433",
+        "mean_signed_change": "0.002218300055039324",
+        "edge_similarity": "0.988264840857033"
+      },
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar127/frames.csv",
+          "sha256": "4be8713577cf610c4f37496187f5a0fd00f7374a08afdeb5c27d86d458375010",
+          "primary_relative": "scans/sub-pixar127_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar127/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar127_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar127/methods.json",
+          "sha256": "b0c746f90705a06ae4b3125a55220969d2b81f9688761f0770750b4901e5ca56",
+          "primary_relative": "scans/sub-pixar127_task-pixar/methods.json"
+        },
+        "matrices.png": {
+          "file": "data/sub-pixar127/matrices.png",
+          "sha256": "2334311175bc7c4ca0cd5144ed16f449c6d20e7fa7e262f5f9fc51b2839ee83d",
+          "primary_relative": "scans/sub-pixar127_task-pixar/matrices.png"
+        },
+        "correlation_baseline.csv": {
+          "file": "data/sub-pixar127/correlation_baseline.csv",
+          "sha256": "fee0772e3f714f3e56a8ff2005129ccdc835a135d96fadb0e7eb77726d8d676a",
+          "primary_relative": "scans/sub-pixar127_task-pixar/correlation_baseline.csv"
+        },
+        "correlation_censored.csv": {
+          "file": "data/sub-pixar127/correlation_censored.csv",
+          "sha256": "9b69a32723cf4236c7ceb62a65ecb59d966adbb3ae744cde9e432f1dfcd06924",
+          "primary_relative": "scans/sub-pixar127_task-pixar/correlation_censored.csv"
+        }
+      }
+    },
+    {
+      "participant_id": "sub-pixar128",
+      "file": "data/sub-pixar128.json",
+      "sha256": "781cd5ee7aa70373ba0392954b3e9c1db9e3dd421baea33f42d4eb7f5ccb6b79",
+      "bytes": 2399280,
+      "summary": {
+        "participant_id": "sub-pixar128",
+        "scan_key": "sub-pixar128_task-pixar",
+        "processing_status": "complete",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.1343125565245509,
+        "high_fd_count": 3,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 164,
+        "censored_retained_minutes": 5.466666666666667,
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.019395383666928022",
+        "max_absolute_change": "0.1031220036376509",
+        "mean_signed_change": "-0.012908784034994982",
+        "edge_similarity": "0.9913729159548731"
+      },
+      "comparison": {
+        "scan_key": "sub-pixar128_task-pixar",
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.019395383666928022",
+        "max_absolute_change": "0.1031220036376509",
+        "mean_signed_change": "-0.012908784034994982",
+        "edge_similarity": "0.9913729159548731"
+      },
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar128/frames.csv",
+          "sha256": "846b145f187d6334bf64a7dd3b46fcc57d0b3715b11ff5ec391bc14d00d398b3",
+          "primary_relative": "scans/sub-pixar128_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar128/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar128_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar128/methods.json",
+          "sha256": "7f77d9f85df18e1040da2b92f767453d823bf1ff746472c7d1ca9e68bd894f87",
+          "primary_relative": "scans/sub-pixar128_task-pixar/methods.json"
+        },
+        "matrices.png": {
+          "file": "data/sub-pixar128/matrices.png",
+          "sha256": "137338a644102f1aed8f7a05cdfe5ed1238cc2e0a6728b42871b65a5d99759cf",
+          "primary_relative": "scans/sub-pixar128_task-pixar/matrices.png"
+        },
+        "correlation_baseline.csv": {
+          "file": "data/sub-pixar128/correlation_baseline.csv",
+          "sha256": "aed247585b79fada5af2747c8ff63ca5e88e71dc894594412c5c5ff01192ae0f",
+          "primary_relative": "scans/sub-pixar128_task-pixar/correlation_baseline.csv"
+        },
+        "correlation_censored.csv": {
+          "file": "data/sub-pixar128/correlation_censored.csv",
+          "sha256": "c89a8ac193a76c65f062dc5c7fe04a4f6bf46dcf1064ed4a642536876a4756a2",
+          "primary_relative": "scans/sub-pixar128_task-pixar/correlation_censored.csv"
+        }
+      }
+    },
+    {
+      "participant_id": "sub-pixar129",
+      "file": "data/sub-pixar129.json",
+      "sha256": "538ed70fb9e01e0851dd813743190c7f6a9a9d579883207d2cbf9493007eac9d",
+      "bytes": 2366673,
+      "summary": {
+        "participant_id": "sub-pixar129",
+        "scan_key": "sub-pixar129_task-pixar",
+        "processing_status": "complete",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.07925318206598803,
+        "high_fd_count": 0,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 167,
+        "censored_retained_minutes": 5.566666666666666,
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.0",
+        "max_absolute_change": "0.0",
+        "mean_signed_change": "0.0",
+        "edge_similarity": "0.9999999999999999"
+      },
+      "comparison": {
+        "scan_key": "sub-pixar129_task-pixar",
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.0",
+        "max_absolute_change": "0.0",
+        "mean_signed_change": "0.0",
+        "edge_similarity": "0.9999999999999999"
+      },
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar129/frames.csv",
+          "sha256": "16a21b93a9956c8638ec63c5cc944be718faf4e181396272cb118184ed4327a0",
+          "primary_relative": "scans/sub-pixar129_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar129/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar129_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar129/methods.json",
+          "sha256": "62fad1b65615321350c5f472391565dfecda72ca89f66e935895db4a8d5ddb48",
+          "primary_relative": "scans/sub-pixar129_task-pixar/methods.json"
+        },
+        "matrices.png": {
+          "file": "data/sub-pixar129/matrices.png",
+          "sha256": "e80e816b8df88f98ab832204b57dc5f5debf46917e75d25ad73bb00bb01acd70",
+          "primary_relative": "scans/sub-pixar129_task-pixar/matrices.png"
+        },
+        "correlation_baseline.csv": {
+          "file": "data/sub-pixar129/correlation_baseline.csv",
+          "sha256": "53d6ec515a74918895586bed1ec8301feaadd14c1b9c681ee945880934338c94",
+          "primary_relative": "scans/sub-pixar129_task-pixar/correlation_baseline.csv"
+        },
+        "correlation_censored.csv": {
+          "file": "data/sub-pixar129/correlation_censored.csv",
+          "sha256": "53d6ec515a74918895586bed1ec8301feaadd14c1b9c681ee945880934338c94",
+          "primary_relative": "scans/sub-pixar129_task-pixar/correlation_censored.csv"
+        }
+      }
+    },
+    {
+      "participant_id": "sub-pixar130",
+      "file": "data/sub-pixar130.json",
+      "sha256": "415c10b9ca64bab5874fc981c34bf3d8190a1b9794f3fea5587801abacacbd8a",
+      "bytes": 2326714,
+      "summary": {
+        "participant_id": "sub-pixar130",
+        "scan_key": "sub-pixar130_task-pixar",
+        "processing_status": "complete",
+        "n_volumes": 168,
+        "n_fd_observed": 167,
+        "mean_fd_mm": 0.23543295648143717,
+        "high_fd_count": 3,
+        "baseline_retained_volumes": 167,
+        "baseline_retained_minutes": 5.566666666666666,
+        "censored_retained_volumes": 164,
+        "censored_retained_minutes": 5.466666666666667,
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.010689036095551394",
+        "max_absolute_change": "0.06633018909683391",
+        "mean_signed_change": "0.006552025758972506",
+        "edge_similarity": "0.9982625072282229"
+      },
+      "comparison": {
+        "scan_key": "sub-pixar130_task-pixar",
+        "n_unique_edges": "1128",
+        "mean_absolute_change": "0.010689036095551394",
+        "max_absolute_change": "0.06633018909683391",
+        "mean_signed_change": "0.006552025758972506",
+        "edge_similarity": "0.9982625072282229"
+      },
+      "exports": {
+        "frames.csv": {
+          "file": "data/sub-pixar130/frames.csv",
+          "sha256": "e38ad140a369aeea5e99e6b24ed23b2b30f779de20d30b9989fa09f8b0bcff16",
+          "primary_relative": "scans/sub-pixar130_task-pixar/frames.csv"
+        },
+        "regions.csv": {
+          "file": "data/sub-pixar130/regions.csv",
+          "sha256": "710db9e89b9c484cfd50012d8c47991ac057d27e11798e4c0379749e4917152f",
+          "primary_relative": "scans/sub-pixar130_task-pixar/regions.csv"
+        },
+        "methods.json": {
+          "file": "data/sub-pixar130/methods.json",
+          "sha256": "51b81349b75ed7b95113044cfdc72a96926482c8296da2e67efddea79c564d32",
+          "primary_relative": "scans/sub-pixar130_task-pixar/methods.json"
+        },
+        "matrices.png": {
+          "file": "data/sub-pixar130/matrices.png",
+          "sha256": "5ef75eaac03bc7dc638af1209f1638f6c31f7dd54383598dbe4344ba5c697bbb",
+          "primary_relative": "scans/sub-pixar130_task-pixar/matrices.png"
+        },
+        "correlation_baseline.csv": {
+          "file": "data/sub-pixar130/correlation_baseline.csv",
+          "sha256": "2d3c5c708e11a67cd89eaa6edfa3d91dbc79f9ec96f8f37e168e1c8919c2820b",
+          "primary_relative": "scans/sub-pixar130_task-pixar/correlation_baseline.csv"
+        },
+        "correlation_censored.csv": {
+          "file": "data/sub-pixar130/correlation_censored.csv",
+          "sha256": "29818c5924b8fee23429d90fbd4d58e7048f89a904398905efc834258ea71a49",
+          "primary_relative": "scans/sub-pixar130_task-pixar/correlation_censored.csv"
+        }
+      }
+    }
+  ],
+  "dataset_citation": "Richardson, Lisandrelli, Riobueno-Naylor & Saxe (2018). Development of the social brain from age three to twelve years. Nature Communications 9, 1027.",
+  "exporter": "tools/build_static_demo.py",
+  "analysis_performed": false,
+  "source_display_manifest_sha256": "b455d97d1c1c7ffa1ce69b848e2a14c00ec6c5d96d06a8e1d78687c2b7b0ddc0",
+  "primary_completed_marker_sha256": "b9fcf4d34a339e6598a76cd8e02cfe00bae390b95300f50cfae19358312514fc",
+  "primary_manifest_sha256": "331b39722c5715cd426ac0e8baaef2bb210afb59531af6c242182d4b2bbd9f1b"
+}

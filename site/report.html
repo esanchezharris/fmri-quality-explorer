@@ -1,0 +1,136 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>fMRI Quality Explorer — saved findings</title>
+<style>body{font:16px/1.65 system-ui,sans-serif;color:#19384a;max-width:1050px;margin:48px auto;padding:0 24px}h1,h2{line-height:1.2}table{border-collapse:collapse;font-size:14px;width:100%}th,td{padding:9px;border:1px solid #d6e3eb;text-align:left}th{background:#eaf1f6}pre{white-space:pre-wrap;font-size:12px}a{color:#176b8a}.notice{background:#fff3db;padding:16px}img{max-width:100%}</style>
+<h1>fMRI Quality Explorer</h1><p>Saved findings from a descriptive movie-watching demonstration using eight public adult scans. This is an excerpt of verified outputs, not a new analysis or a validation study.</p>
+<h2>Question and methods</h2><p>How does censoring FD strictly above 0.5 mm change retained data and regional Pearson correlations? Both conditions exclude frame zero and supplied non-steady-state frames. The atlas and nuisance model are fixed. Project guardrails require 120 retained seconds and 20 nominal residual design degrees of freedom. <a href="https://github.com/esanchezharris/fmri-quality-explorer/blob/main/docs/METHODS.md">Full methods</a>.</p>
+<h2>Actual primary results</h2><p>Seven paired matrices were available. Sub-pixar124's region 14 was constant, so its matrices were withheld. Defined-FD summaries use 167 observations of 168 acquired frames; the stored initial value is preserved locally but undefined for difference-based summaries. Retained time is volumes × 2 seconds.</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Participant</th>
+      <th>Primary status</th>
+      <th>Baseline volumes</th>
+      <th>FD-censored volumes</th>
+      <th>Defined FD values</th>
+      <th>Mean absolute Δr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sub-pixar123</td>
+      <td>complete</td>
+      <td>167</td>
+      <td>166</td>
+      <td>167</td>
+      <td>0.004902</td>
+    </tr>
+    <tr>
+      <td>sub-pixar124</td>
+      <td>analysis_unavailable</td>
+      <td>167</td>
+      <td>104</td>
+      <td>167</td>
+      <td>Unavailable</td>
+    </tr>
+    <tr>
+      <td>sub-pixar125</td>
+      <td>complete</td>
+      <td>167</td>
+      <td>159</td>
+      <td>167</td>
+      <td>0.062234</td>
+    </tr>
+    <tr>
+      <td>sub-pixar126</td>
+      <td>complete</td>
+      <td>167</td>
+      <td>164</td>
+      <td>167</td>
+      <td>0.016769</td>
+    </tr>
+    <tr>
+      <td>sub-pixar127</td>
+      <td>complete</td>
+      <td>167</td>
+      <td>161</td>
+      <td>167</td>
+      <td>0.026484</td>
+    </tr>
+    <tr>
+      <td>sub-pixar128</td>
+      <td>complete</td>
+      <td>167</td>
+      <td>164</td>
+      <td>167</td>
+      <td>0.019395</td>
+    </tr>
+    <tr>
+      <td>sub-pixar129</td>
+      <td>complete</td>
+      <td>167</td>
+      <td>167</td>
+      <td>167</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>sub-pixar130</td>
+      <td>complete</td>
+      <td>167</td>
+      <td>164</td>
+      <td>167</td>
+      <td>0.010689</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Coverage investigation</h2><p>For sub-pixar123, the independent SPM8 mask included 171/647 atlas centers in region 14 and 50/610 in region 37. The region-37 split was 49/316 left and 1/294 right. In the tutorial derivative, 20/76 region-37 centers varied over the run despite a computable regional matrix. Sub-pixar124 had 0/82 varying tutorial region-14 centers and 0/647 centers in the independent archived mask.</p>
+<p class="notice">The tutorial variation proxy and independent SPM8 mask measure different things with different denominators. The matching 2019 fMRIPrep parent mask and QA remain unavailable. These observations establish a coverage concern; they do not isolate acquisition, masking, registration, resampling or quantization contributions. No primary result or exclusion was changed.</p>
+<p>Sub-pixar130's archived mask had 152 undefined locations, all outside the selected cortical atlas. Unknown membership remains unknown. Coverage review bins are project conventions, not validated exclusions. Changed matrices do not prove biological accuracy.</p>
+<h2>Exports and next steps</h2><p><a href="data/results_summary.csv">Primary summary CSV</a> · <a href="data/coverage_summary.csv">Coverage CSV</a> · <a href="data/hemisphere_coverage.csv">Hemisphere CSV</a> · <a href="data/source_hashes.csv">Source identities and hashes</a> · <a href="data/provenance.json">Settings and provenance</a>. Inspect the original source QA and resolve the matching-parent gap before proposing a research inclusion decision.</p>
+<h2>Recorded settings</h2><pre>{
+  &quot;fd_threshold_mm&quot;: 0.5,
+  &quot;minimum_seconds&quot;: 120.0,
+  &quot;minimum_residual_df&quot;: 20,
+  &quot;atlas&quot;: &quot;cort-maxprob-thr25-2mm&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;estimator&quot;: &quot;ordinary Pearson correlation; numpy.corrcoef&quot;,
+  &quot;strategy&quot;: [
+    &quot;high_pass&quot;,
+    &quot;motion&quot;,
+    &quot;wm_csf&quot;
+  ],
+  &quot;motion&quot;: &quot;basic&quot;,
+  &quot;wm_csf&quot;: &quot;basic&quot;,
+  &quot;demean&quot;: false,
+  &quot;extraction&quot;: {
+    &quot;standardize&quot;: null,
+    &quot;detrend&quot;: false,
+    &quot;smoothing_fwhm&quot;: null,
+    &quot;high_pass&quot;: null,
+    &quot;low_pass&quot;: null,
+    &quot;confounds&quot;: null,
+    &quot;sample_mask&quot;: null,
+    &quot;resampling&quot;: &quot;nearest-neighbor atlas to image grid&quot;
+  },
+  &quot;cleaning&quot;: {
+    &quot;detrend&quot;: false,
+    &quot;standardize&quot;: &quot;zscore_sample&quot;,
+    &quot;standardize_confounds&quot;: true,
+    &quot;filter&quot;: false,
+    &quot;low_pass&quot;: null,
+    &quot;high_pass&quot;: null,
+    &quot;ensure_finite&quot;: false
+  },
+  &quot;initial_policy&quot;: &quot;Exclude original index zero in both conditions, even if source FD/DVARS are stored as zero; exclude index zero from difference-based summaries. Preserve source values.&quot;,
+  &quot;common_exclusions&quot;: &quot;initial frame and supplied non-steady-state flags&quot;,
+  &quot;censor_rule&quot;: &quot;FD &gt; 0.5 mm only; no neighboring frames, DVARS rule, or segment pruning&quot;,
+  &quot;residual_df_rule&quot;: &quot;retained rows minus rank([intercept, retained nuisance columns]); nominal, not independent physiological df&quot;,
+  &quot;frequency_cutoff&quot;: &quot;unknown: supplied cosine drift columns used without inventing a cutoff&quot;,
+  &quot;symmetric_split&quot;: false,
+  &quot;matrix_scale&quot;: [
+    -1,
+    1
+  ],
+  &quot;difference_scale&quot;: [
+    -2,
+    2
+  ]
+}</pre>
+<h2>Attribution</h2><p>Richardson, Lisandrelli, Riobueno-Naylor &amp; Saxe (2018). Development of the social brain from age three to twelve years. Nature Communications 9, 1027.. <a href="https://nilearn.github.io/stable/modules/generated/nilearn.datasets.fetch_development_fmri.html">Nilearn dataset documentation</a> · <a href="https://osf.io/wjtyq/">Tutorial preprocessing documentation</a>. Independent archived derivatives are a separate SPM8 lineage. Existing Nilearn methods support extraction and cleaning; this project adds integrity checks, coverage audits, explicit failure handling and reporting.</p></html>

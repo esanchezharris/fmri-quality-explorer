@@ -1,0 +1,82 @@
+{
+  "data_kind": "saved_real_result_excerpt",
+  "primary_status": {
+    "n_subjects": 8,
+    "acquired_scans": 8,
+    "all_analyses_complete": false,
+    "status": "partial",
+    "comparisons_complete": 7,
+    "data_kind": "real"
+  },
+  "dataset_citation": "Richardson, Lisandrelli, Riobueno-Naylor & Saxe (2018). Development of the social brain from age three to twelve years. Nature Communications 9, 1027.",
+  "settings": {
+    "fd_threshold_mm": 0.5,
+    "minimum_seconds": 120.0,
+    "minimum_residual_df": 20,
+    "atlas": "cort-maxprob-thr25-2mm",
+    "schema_version": 1,
+    "estimator": "ordinary Pearson correlation; numpy.corrcoef",
+    "strategy": [
+      "high_pass",
+      "motion",
+      "wm_csf"
+    ],
+    "motion": "basic",
+    "wm_csf": "basic",
+    "demean": false,
+    "extraction": {
+      "standardize": null,
+      "detrend": false,
+      "smoothing_fwhm": null,
+      "high_pass": null,
+      "low_pass": null,
+      "confounds": null,
+      "sample_mask": null,
+      "resampling": "nearest-neighbor atlas to image grid"
+    },
+    "cleaning": {
+      "detrend": false,
+      "standardize": "zscore_sample",
+      "standardize_confounds": true,
+      "filter": false,
+      "low_pass": null,
+      "high_pass": null,
+      "ensure_finite": false
+    },
+    "initial_policy": "Exclude original index zero in both conditions, even if source FD/DVARS are stored as zero; exclude index zero from difference-based summaries. Preserve source values.",
+    "common_exclusions": "initial frame and supplied non-steady-state flags",
+    "censor_rule": "FD > 0.5 mm only; no neighboring frames, DVARS rule, or segment pruning",
+    "residual_df_rule": "retained rows minus rank([intercept, retained nuisance columns]); nominal, not independent physiological df",
+    "frequency_cutoff": "unknown: supplied cosine drift columns used without inventing a cutoff",
+    "symmetric_split": false,
+    "matrix_scale": [
+      -1,
+      1
+    ],
+    "difference_scale": [
+      -2,
+      2
+    ]
+  },
+  "dependency_versions": {
+    "nilearn": "0.13.1",
+    "nibabel": "5.4.2",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "streamlit": "1.66.1",
+    "jinja2": "3.1.6"
+  },
+  "source_artifact_hashes": {
+    "outputs/eight/manifest.csv": "331b39722c5715cd426ac0e8baaef2bb210afb59531af6c242182d4b2bbd9f1b",
+    "outputs/eight/retention.csv": "4196185ef9ac61acfe533bc4c0e249337462a2e3c0d4f85754d04672329d8538",
+    "outputs/eight/motion_summary.csv": "e7419f429a4c64ef8e89a8be8887642c2267b0f9ca2477fce1d9e398f47e7cb3",
+    "outputs/eight/comparison.csv": "746c7ad0ff4e936dd52d0b00d8c27b1842ab0d0a35f43619246a47333e8e73d3",
+    "outputs/eight/settings.json": "15fdfe5faf90abcb73052a4d36f8c13029178a06971bee9e43af6a956847e000",
+    "investigations/eight-adult-coverage/participant_summary.csv": "a7bcab3c1e23443d312916dd336a80c45fb75729924f1e12cb9e6caaf4427bbe",
+    "investigations/eight-adult-coverage/overnight-followups/hemisphere_coverage.csv": "72e4af1f60a73a7a28d130ff299c754acdb3c17bd323cbbe7085b790581ad013"
+  },
+  "transformation": "Identifier-validated joins and selected columns; original scientific artifacts unchanged; local filesystem paths omitted"
+}
