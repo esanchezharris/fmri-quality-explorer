@@ -21,4 +21,4 @@ jobs:
       - run: uv sync --locked
       - run: uv run pytest -q
       - run: uv run pytest -q investigations/eight-adult-coverage/overnight-followups/test_hemisphere.py
-      - run: node --test tests/explorer-model.test.mjs
+      - run: node --test tests/*.test.mjs

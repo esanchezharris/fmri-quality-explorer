@@ -16,7 +16,10 @@ function showView() {
   if (view === 'inspection' && viewerReady) $('viewer').contentWindow.dispatchEvent(new Event('resize'));
 }
 function deliver() {
-  if (viewerReady && payload) $('viewer').contentWindow.postMessage({type:'streamlit:render',args:{data:payload}},location.origin);
+  // Initial data, child-ready and iframe-load are independent arrival orders.
+  // Always attempt delivery when data arrives: child-ready/load may have occurred
+  // before this module registered its listeners. A later child-ready retries it.
+  if (payload) $('viewer').contentWindow.postMessage({type:'streamlit:render',args:{data:payload}},location.origin);
 }
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== $('viewer').contentWindow) return;
