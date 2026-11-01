@@ -20,7 +20,12 @@ explicitly unavailable results.
 
 ![fMRI Quality Explorer running on saved real data](docs/images/app.png)
 
-![Rotating real mean BOLD with four atlas regions highlighted; atlas selections, not activation](docs/images/scan-rotation.gif)
+<picture>
+  <source media="(max-width: 560px) and (prefers-reduced-motion: reduce)" srcset="docs/images/scan-rotation-compact.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/images/scan-rotation-poster.png">
+  <source media="(max-width: 560px)" srcset="docs/images/scan-rotation-compact.gif">
+  <img src="docs/images/scan-rotation.gif" alt="Rotating real mean BOLD with four atlas regions highlighted; atlas selections, not activation" width="800">
+</picture>
 
 The 12-second loop shows sub-pixar125's independent SPM8 mean BOLD and four atlas parcels.
 The normalized 2-mm grid already has 5-mm smoothing; the color is an atlas selection,
@@ -112,7 +117,7 @@ recovering anatomical detail or changing source voxels, counts or results.
 ```sh
 uv run pytest -q
 uv run pytest -q investigations/eight-adult-coverage/overnight-followups/test_hemisphere.py
-node --test tests/explorer-model.test.mjs
+node --test tests/*.test.mjs
 ```
 
 CI runs without downloading participant data. Data-dependent acceptance tests explicitly

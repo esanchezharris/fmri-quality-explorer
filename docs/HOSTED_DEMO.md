@@ -43,6 +43,9 @@ Deployment uses GitHub's Pages environment and pinned official actions.
 
 `docs/images/scan-rotation.gif` is a 12-second periodic orbit of a real saved mean BOLD
 image with four Harvard–Oxford parcel selections. It is not an activation movie.
+The README selects a separately composed 390px version on narrow screens and a still
+poster when reduced motion is requested. The compact version reuses the same real
+rendered brain frames, with a closer crop and readable source/parcel captions.
 The GIF renderer and metadata record the source, frame cadence, loop closure and
 display parameters. The independent SPM8 derivative already has 5-mm smoothing; a
 2-mm normalized display grid is not a claim about native acquisition resolution.
@@ -50,3 +53,6 @@ display parameters. The independent SPM8 derivative already has 5-mm smoothing; 
 The Harvard–Oxford atlas adaptations and animated preview retain CC BY-SA 4.0;
 study and library attribution is included in the demo's Sources page. The locally
 bundled NiiVue library retains its full BSD-2-Clause license.
+
+The visual review applies [Stageshow's craft and rehearsal guidance](DESIGN_REHEARSAL.md)
+to the real-data interface and preview.

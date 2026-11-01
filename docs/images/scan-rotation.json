@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-01T21:04:57.532027+00:00",
+  "generated_at_utc": "2026-11-01T21:22:18.425618+00:00",
   "artifact": "scan-rotation.gif",
   "participant": "sub-pixar125",
   "source": "archive",
@@ -25,6 +25,32 @@
   },
   "display_asset_key": "64d69e8935438b91fcaf7e367642b1c0bd5e5e488bd88220dd1578795b7b25cb",
   "primary_binding": "verified by load_explorer",
+  "framing": {
+    "header": {
+      "left": 32,
+      "top": 26,
+      "right": 768,
+      "bottom": 80.390625
+    },
+    "canvas": {
+      "left": 0,
+      "top": 70,
+      "right": 800,
+      "bottom": 468
+    },
+    "parcels": {
+      "left": 32,
+      "top": 471.921875,
+      "right": 768,
+      "bottom": 516.8125
+    },
+    "footer": {
+      "left": 32,
+      "top": 471.921875,
+      "right": 768,
+      "bottom": 575
+    }
+  },
   "atlas": {
     "name": "cort-maxprob-thr25-2mm",
     "sha256": "586d76a7defd278fcea4d83d301994d7e096aa8272d26e3c7539b4f8ebd588c1",
@@ -73,8 +99,8 @@
   "representation": "Full-run mean BOLD, rotating camera; binary atlas selections fade. Not activation.",
   "orientation": "Uses saved supplied coordinates and existing NiiVue convention; no reorientation or registration.",
   "cyclic_parameterization": "phase=(index mod 240)/240; azimuth=120+360*phase; elevation=15+5*sin(2*pi*phase); parcel opacity=.86*sin(pi*local_phase)^2",
-  "output_sha256": "a9728949bc05839a6cb5a76022f564d6fe3fc4d4972c2906ffaa66299de9ce95",
-  "output_bytes": 10794392,
+  "output_sha256": "07623cae2e84b34410da1b3ce1877a975060baf4ff50c1b372d2335664ff4367",
+  "output_bytes": 10906492,
   "validation": {
     "dimensions": [
       800,
@@ -91,28 +117,28 @@
     "palette_dither": "none",
     "shared_input_palette": true,
     "decoded_peak_highlight_pixels": {
-      "1": 32320,
-      "7": 13513,
-      "21": 8294,
-      "48": 4859
+      "1": 32440,
+      "7": 13773,
+      "21": 8806,
+      "48": 5443
     },
     "closure_frame_rgb_mean_absolute_difference": 0.0,
     "closure_frame_pixel_identical": true,
     "adjacent_frame_mean_absolute_difference": {
-      "minimum": 0.4224645833333333,
-      "median": 0.5345788194444444,
-      "maximum": 0.7937472222222222,
-      "seam": 0.5002604166666667,
-      "first_step": 0.5108888888888888,
-      "before_seam": 0.49429930555555557
+      "minimum": 0.4229201388888889,
+      "median": 0.5350322916666667,
+      "maximum": 0.7970736111111111,
+      "seam": 0.5008506944444444,
+      "first_step": 0.5115055555555555,
+      "before_seam": 0.4948888888888889
     },
     "decoded_adjacent_frame_mean_absolute_difference": {
-      "minimum": 0.41818958333333334,
-      "median": 0.5500045138888889,
-      "maximum": 0.8865215277777778,
-      "seam": 0.5088493055555555,
-      "first_step": 0.527225,
-      "before_seam": 0.5048486111111111
+      "minimum": 0.42373819444444444,
+      "median": 0.5492003472222222,
+      "maximum": 0.8848083333333333,
+      "seam": 0.5115861111111111,
+      "first_step": 0.5221958333333333,
+      "before_seam": 0.5028388888888888
     }
   }
 }

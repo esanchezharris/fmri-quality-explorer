@@ -8,6 +8,9 @@ it does not animate neural activity. Run from the published repository, e.g.:
 
     python tools/render_demo_gif.py --display /path/to/coverage_explorer \
         --primary /path/to/outputs/eight --work /path/to/private-render-work
+
+Add --compact to reuse those saved frames in a separately typeset 390px image;
+this performs no new browser capture or imaging analysis.
 """
 
 from __future__ import annotations
@@ -25,7 +28,7 @@ from datetime import datetime, timezone
 from functools import partial
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageStat
+from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageStat
 from PIL.PngImagePlugin import PngInfo
 from playwright.sync_api import sync_playwright
 
@@ -54,7 +57,7 @@ html,body{margin:0!important;width:800px!important;height:600px!important;
 #gif-header{position:absolute;top:26px;left:32px;right:32px;z-index:2}
 #gif-header h1{font-size:27px;letter-spacing:-.6px;line-height:1.2;margin:0 0 7px;font-weight:600}
 #gif-header p{font-size:13px;color:#b0c3cd;margin:0}
-#gif-canvas{position:absolute;top:88px;left:0;width:800px;height:398px}
+#gif-canvas{position:absolute;top:70px;left:0;width:800px;height:398px}
 #gif-canvas canvas{display:block;width:800px!important;height:398px!important;outline:none}
 #gif-footer{position:absolute;left:32px;right:32px;bottom:25px}
 #gif-parcels{display:flex;justify-content:space-between;gap:12px;margin-bottom:21px}
@@ -240,6 +243,210 @@ def encode(frames: list[Path], destination: Path, work: Path) -> dict:
     return verification
 
 
+def render_compact(work: Path, destination: Path) -> None:
+    """Recompose existing real render pixels for a readable phone-width image."""
+    if destination.name != "scan-rotation-compact.gif":
+        raise ValueError("Compact output must be named scan-rotation-compact.gif")
+    evidence = work / "compact"
+    evidence.mkdir(parents=True, exist_ok=True)
+    frame_paths = [work / "frames" / f"{index:04d}.png" for index in range(FRAME_COUNT)]
+    full_gif = ROOT / "docs/images/scan-rotation.gif"
+    full_manifest_path = full_gif.with_suffix(".json")
+    full_manifest = json.loads(full_manifest_path.read_text())
+    full_before = sha256(full_gif)
+    if full_before != full_manifest["output_sha256"]:
+        raise ValueError("Original GIF no longer matches its recorded provenance")
+    # The unchanged header overlays only blank space at canvas top70–85.
+    # Begin below that UI text, retaining all displayed brain pixels below126.
+    source_crop = (80, 86, 720, 468)
+    compact_size, brain_size, brain_top = (390, 534), (390, 233), 92
+    background, neutral, secondary = "#102b3b", "#e8f0f3", "#b0c3cd"
+    font_dir = Path("/System/Library/Fonts/Supplemental")
+    fonts = {size: ImageFont.truetype(str(font_dir / "Arial.ttf"), size) for size in (12, 13)}
+    title_font = ImageFont.truetype(str(font_dir / "Arial Bold.ttf"), 20)
+    caption_font = ImageFont.truetype(str(font_dir / "Arial Bold.ttf"), 14)
+    labels = [
+        (1, "Frontal Pole"),
+        (7, "Precentral Gyrus"),
+        (21, "Angular Gyrus"),
+        (48, "Occipital Pole"),
+    ]
+
+    def compose(source_image: Image.Image, index: int) -> Image.Image:
+        image = Image.new("RGB", compact_size, background)
+        draw = ImageDraw.Draw(image)
+        draw.text((18, 18), "Explore a real fMRI scan", font=title_font, fill=neutral)
+        draw.text(
+            (18, 52), "sub-pixar125 · Independent SPM8 archive", font=fonts[12], fill=secondary
+        )
+        draw.text((18, 70), "2-mm normalized grid · full-run mean", font=fonts[12], fill=secondary)
+        position = (index % FRAME_COUNT) / FRAME_COUNT * len(REGIONS)
+        segment = math.floor(position)
+        weight = math.sin(math.pi * (position - segment)) ** 2
+        brain = source_image.crop(source_crop)
+        brain = brain.resize(brain_size, Image.Resampling.LANCZOS)
+        image.paste(brain, (0, brain_top))
+        draw.text((18, 351), "Atlas selections", font=fonts[12], fill=secondary)
+        for label_index, (region_id, label) in enumerate(labels):
+            active = weight if region_id == REGIONS[segment] else 0
+            color = (176 + round(44 * active), 195 - round(39 * active), 205 - round(153 * active))
+            x, y = 18 + (label_index % 2) * 181, 374 + (label_index // 2) * 23
+            draw.text((x, y), f"{region_id}  {label}", font=fonts[12], fill=color)
+        draw.text((18, 434), "Rotating mean BOLD", font=caption_font, fill=neutral)
+        draw.text((18, 456), "Atlas selections, not activation", font=fonts[13], fill=neutral)
+        draw.text((18, 493), "Harvard–Oxford · ds000228", font=fonts[12], fill=secondary)
+        draw.text((18, 511), "NiiVue 0.69.0 · CC BY-SA 4.0", font=fonts[12], fill=secondary)
+        return image
+
+    images, source_bounds = [], []
+    for index, path in enumerate(frame_paths):
+        with Image.open(path) as source_image:
+            source_image = source_image.convert("RGB")
+            # Bound visible source marks without segmenting anatomy or making
+            # a scientific brain-coverage judgment.
+            mask = (
+                source_image.crop(source_crop).getchannel("R").point(lambda r: 255 if r > 45 else 0)
+            )
+            bounds = mask.getbbox()
+            if bounds is None or bounds[0] <= 0 or bounds[2] >= 640 or bounds[1] <= 0:
+                raise ValueError(f"Central crop clips visible source pixels in frame {index}")
+            source_bounds.append([bounds[0] + 80, bounds[1] + 86, bounds[2] + 80, bounds[3] + 86])
+            images.append(compose(source_image, index))
+    with Image.open(work / "closure.png") as source_closure:
+        closure = compose(source_closure.convert("RGB"), FRAME_COUNT)
+    if ImageChops.difference(images[0], closure).getbbox() is not None:
+        raise RuntimeError("Compact closure is not pixel-identical to frame zero")
+    closure.save(evidence / "closure.png")
+    palette_sheet = Image.new("RGB", (390 * 4, 534 * 6), background)
+    for index, image in enumerate(images[::10]):
+        palette_sheet.paste(image, ((index % 4) * 390, (index // 4) * 534))
+    # Reserve neutral shades so quantization cannot add colored patches to the
+    # mean BOLD. Adaptive colors retain the source amber and background blends.
+    adaptive_palette = palette_sheet.quantize(colors=128, method=Image.Quantize.MEDIANCUT)
+    palette = Image.new("P", (1, 1))
+    gray_ramp = [value for level in range(128) for value in (level * 2,) * 3]
+    palette.putpalette(gray_ramp + adaptive_palette.getpalette()[:384])
+    indexed = [image.quantize(palette=palette, dither=Image.Dither.NONE) for image in images]
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    indexed[0].save(
+        destination,
+        save_all=True,
+        append_images=indexed[1:],
+        duration=FRAME_MS,
+        loop=0,
+        optimize=False,
+        disposal=1,
+        comment=MEDIA_ATTRIBUTION.encode("utf-8"),
+    )
+    poster_metadata = PngInfo()
+    poster_metadata.add_text("Attribution and license", MEDIA_ATTRIBUTION)
+    images[30].save(destination.with_suffix(".png"), pnginfo=poster_metadata)
+    decoded_frames, durations = [], []
+    with Image.open(destination) as saved:
+        loop = saved.info["loop"]
+        for index in range(saved.n_frames):
+            saved.seek(index)
+            durations.append(saved.info["duration"])
+            decoded_frames.append(saved.convert("RGB"))
+    unique = len({hashlib.sha256(image.tobytes()).hexdigest() for image in decoded_frames})
+    differences = [
+        mean_difference(image, decoded_frames[(index + 1) % FRAME_COUNT])
+        for index, image in enumerate(decoded_frames)
+    ]
+    if len(decoded_frames) != FRAME_COUNT or unique != FRAME_COUNT or set(durations) != {FRAME_MS}:
+        raise RuntimeError("Compact GIF lost frames, timing, or unique motion")
+    peaks = {}
+    for region_id, index in zip(REGIONS, (30, 90, 150, 210), strict=True):
+        pixels = (
+            decoded_frames[index].crop((0, brain_top, 390, brain_top + brain_size[1])).tobytes()
+        )
+        peaks[region_id] = sum(
+            red > 115 and green > 90 and blue < red * 0.65
+            for red, green, blue in zip(pixels[0::3], pixels[1::3], pixels[2::3], strict=True)
+        )
+    if not all(count > 1000 for count in peaks.values()):
+        raise RuntimeError("A compact atlas highlight is not visible")
+    contact = Image.new("RGB", (390 * 4, 534), background)
+    for position, index in enumerate((30, 90, 150, 210)):
+        contact.paste(decoded_frames[index], (position * 390, 0))
+    contact.save(evidence / "decoded-contact-sheet.png")
+    if sha256(full_gif) != full_before:
+        raise RuntimeError("The full-sized GIF changed during compact export")
+    validation = dict(
+        dimensions=list(compact_size),
+        frames=len(decoded_frames),
+        unique_frames=unique,
+        frame_duration_ms=FRAME_MS,
+        total_duration_ms=sum(durations),
+        loop=loop,
+        shared_palette=all(frame.getpalette() == indexed[0].getpalette() for frame in indexed),
+        palette_colors=256,
+        reserved_neutral_shades=128,
+        dithering="none",
+        closure_pixel_identical=True,
+        decoded_highlight_pixels=peaks,
+        all_angles_no_added_crop_clipping=True,
+        canvas_to_labels_gap_pixels=351 - (brain_top + brain_size[1]),
+        source_pixel_bounds=[
+            min(b[0] for b in source_bounds),
+            min(b[1] for b in source_bounds),
+            max(b[2] for b in source_bounds),
+            max(b[3] for b in source_bounds),
+        ],
+        decoded_transition_mae=dict(
+            seam=differences[-1],
+            before_seam=differences[-2],
+            first_step=differences[0],
+            median=statistics.median(differences),
+            maximum=max(differences),
+        ),
+    )
+    manifest = dict(
+        generated_at_utc=datetime.now(timezone.utc).isoformat(),
+        artifact=destination.name,
+        output_bytes=destination.stat().st_size,
+        output_sha256=sha256(destination),
+        source_full_gif_sha256=full_before,
+        source_full_manifest_sha256=sha256(full_manifest_path),
+        source_frame_sha256={path.name: sha256(path) for path in frame_paths},
+        crop_source_pixels=list(source_crop),
+        resized_brain_pixels=list(brain_size),
+        source_canvas_pixels=[0, 70, 800, 468],
+        source_footer_rule_y=472,
+        inherited_UI_cleanup="None; newly captured canvas ends above the separate footer rule",
+        minimum_text_size_pixels=12,
+        minimum_at_358_pixel_display=12 * 358 / 390,
+        typography="Arial; 20px heading, 12px source/parcel/credit, 14px caption, 13px qualification",
+        design_guidance="https://github.com/benjitaylor/skills/tree/802057409787133703c56001080169e347305572/stageshow",
+        compact_design="Separate composition; original brain canvas pixels cropped and resized, header/footer typeset anew; no new brain rendering or analysis.",
+        scientific_data_change=False,
+        source={
+            key: full_manifest[key]
+            for key in (
+                "participant",
+                "source",
+                "source_filename",
+                "source_sha256",
+                "preprocessing",
+                "grid_mm",
+                "atlas",
+                "regions",
+                "media_license",
+                "representation",
+            )
+        },
+        validation=validation,
+    )
+    destination.with_suffix(".json").write_text(json.dumps(manifest, indent=2) + "\n")
+    print(
+        json.dumps(
+            dict(output=str(destination), bytes=destination.stat().st_size, validation=validation),
+            indent=2,
+        ),
+        flush=True,
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--display", type=Path, required=True)
@@ -251,8 +458,19 @@ def main():
     )
     parser.add_argument("--preview", action="store_true", help="Render eight test frames only")
     parser.add_argument("--encode-only", action="store_true", help="Encode already rendered frames")
+    parser.add_argument(
+        "--compact",
+        action="store_true",
+        help="Recompose existing frames for a 390px phone-width GIF; no recapture",
+    )
     args = parser.parse_args()
     args.work.mkdir(parents=True, exist_ok=True)
+    if args.compact:
+        destination = args.output
+        if destination == ROOT / "docs/images/scan-rotation.gif":
+            destination = ROOT / "docs/images/scan-rotation-compact.gif"
+        render_compact(args.work, destination)
+        return
     frame_dir = args.work / "frames"
     frame_dir.mkdir(exist_ok=True)
     participant, source = "sub-pixar125", "archive"
@@ -286,6 +504,16 @@ def main():
             page.locator("#view-3d").click()
             page.add_style_tag(content=STAGE_CSS)
             runtime = page.evaluate(STAGE_JS)
+            runtime["framing"] = page.evaluate("""() => {
+                const bounds = id => {
+                    const r=document.getElementById(id).getBoundingClientRect();
+                    return {left:r.left,top:r.top,right:r.right,bottom:r.bottom};
+                };
+                return {header:bounds('gif-header'),canvas:bounds('gif-canvas'),
+                    parcels:bounds('gif-parcels'),footer:bounds('gif-footer')};
+            }""")
+            if runtime["framing"]["canvas"]["bottom"] >= runtime["framing"]["parcels"]["top"]:
+                raise RuntimeError("Brain canvas overlaps the footer")
             page.evaluate("document.fonts.ready")
             indices = list(range(0, FRAME_COUNT, 30)) if args.preview else list(range(FRAME_COUNT))
             for index in indices + [FRAME_COUNT]:
@@ -330,6 +558,7 @@ def main():
         },
         display_asset_key=metadata["asset_key"],
         primary_binding="verified by load_explorer",
+        framing=json.loads((args.work / "render-state.json").read_text())["runtime"].get("framing"),
         atlas=metadata["atlas"],
         media_license={
             "identifier": "CC-BY-SA-4.0",
