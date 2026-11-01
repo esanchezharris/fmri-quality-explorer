@@ -1,0 +1,118 @@
+{
+  "generated_at_utc": "2026-11-01T21:04:57.532027+00:00",
+  "artifact": "scan-rotation.gif",
+  "participant": "sub-pixar125",
+  "source": "archive",
+  "source_filename": "sub-pixar125_task-pixar_run-001_swrf_bold.nii.gz",
+  "source_sha256": "fdb43ea2b47a1513bf6216e3b2ba0011d2da1c2ca8f5c10bf939fd5f35e7187e",
+  "mask_source_sha256": "4f9a9f65acda22eaed32407edd6b57cd822b4f7aee56472a3d59eb4cfd97fe65",
+  "preprocessing": "SPM8 / MATLAB, 5-mm smoothing, normalized 2-mm grid",
+  "grid_mm": [
+    2.0,
+    2.0,
+    2.0
+  ],
+  "mean_intensity_window": [
+    0.0,
+    1054.984375
+  ],
+  "metadata_sha256": "2da80d44f81873926db5441cf74eb1b95ba39b1dff200ddc2401d264b31d496e",
+  "display_asset_hashes": {
+    "mean": "5fe1078a39caae5de5216602e22687195cf7fded2b29ff94fff9fb6d83274714",
+    "atlas": "753ac169195ed03a3f9b369f24c3c2dc5e19398899b15caca1f8e5f2ae07c460",
+    "support": "8c4d248949213105ea243a83219cdeb19b5d17a94fdc75fd77ce75589399d14d",
+    "unknown": "dd6509817cd64534f6304b0eacc237544f51e91412ef90a30390de23bde08882"
+  },
+  "display_asset_key": "64d69e8935438b91fcaf7e367642b1c0bd5e5e488bd88220dd1578795b7b25cb",
+  "primary_binding": "verified by load_explorer",
+  "atlas": {
+    "name": "cort-maxprob-thr25-2mm",
+    "sha256": "586d76a7defd278fcea4d83d301994d7e096aa8272d26e3c7539b4f8ebd588c1",
+    "symmetric_split": false
+  },
+  "media_license": {
+    "identifier": "CC-BY-SA-4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "scope": "GIF and poster",
+    "atlas_license_source": "https://fsl.fmrib.ox.ac.uk/fsl/docs/license.html",
+    "attribution_and_adaptations": "Adapted from Harvard-Oxford cortical atlas (Harvard Center for Morphometric Analysis / FSL): nearest-neighbor resampling to the saved image grid, binary parcel selections, 3-D rendering, color, opacity and camera animation. GIF and poster: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Atlas license: https://fsl.fmrib.ox.ac.uk/fsl/docs/license.html . Mean BOLD: Richardson et al. (2018), OpenNeuro ds000228, sub-pixar125 independent SPM8 archive. Viewer: NiiVue 0.69.0, BSD-2-Clause."
+  },
+  "regions": [
+    {
+      "id": 1,
+      "name": "Frontal Pole"
+    },
+    {
+      "id": 7,
+      "name": "Precentral Gyrus"
+    },
+    {
+      "id": 21,
+      "name": "Angular Gyrus"
+    },
+    {
+      "id": 48,
+      "name": "Occipital Pole"
+    }
+  ],
+  "viewer": {
+    "name": "@niivue/niivue",
+    "version": "0.69.0",
+    "license": "BSD-2-Clause",
+    "source_url": "https://registry.npmjs.org/@niivue/niivue/-/niivue-0.69.0.tgz",
+    "npm_integrity": "sha512-YMjQvJgD1W2b7DuoxkwlC4VxbrgIePRJ5qyQzXKxi2v2MBVg285P/CIQyg46oDDGDIcaNlbd+MhtO/edMbXJkA==",
+    "archive_sha256": "6e9a6a471b428eb3b258a0086beca9187d95e43a781a39e8a519c6da246af485",
+    "files": {
+      "NiiVue-LICENSE.txt": "604be23eceeef93996165e2cd46eefd4d713f98f1b4a5414ab109516dc1b30bf",
+      "niivue.esm.js": "bcb456b66a26e20126b7257c2b6071f48b347b7f910f99bca26721a71a96cbed",
+      "niivue-0.69.0.min.js": "f83a59526eb34aa7b6b4952c83121bbda54f60700ca86096d847cbb0b9358549"
+    },
+    "transformation": "JSON-decode and percent-decode the npm min entry esm string; no library code modifications.",
+    "license_source_url": "https://raw.githubusercontent.com/niivue/niivue/main/LICENSE"
+  },
+  "representation": "Full-run mean BOLD, rotating camera; binary atlas selections fade. Not activation.",
+  "orientation": "Uses saved supplied coordinates and existing NiiVue convention; no reorientation or registration.",
+  "cyclic_parameterization": "phase=(index mod 240)/240; azimuth=120+360*phase; elevation=15+5*sin(2*pi*phase); parcel opacity=.86*sin(pi*local_phase)^2",
+  "output_sha256": "a9728949bc05839a6cb5a76022f564d6fe3fc4d4972c2906ffaa66299de9ce95",
+  "output_bytes": 10794392,
+  "validation": {
+    "dimensions": [
+      800,
+      600
+    ],
+    "saved_frames": 240,
+    "unique_decoded_frames": 240,
+    "duration_ms": 12000,
+    "frame_durations_ms": [
+      50
+    ],
+    "loop": 0,
+    "global_palette_colors": 256,
+    "palette_dither": "none",
+    "shared_input_palette": true,
+    "decoded_peak_highlight_pixels": {
+      "1": 32320,
+      "7": 13513,
+      "21": 8294,
+      "48": 4859
+    },
+    "closure_frame_rgb_mean_absolute_difference": 0.0,
+    "closure_frame_pixel_identical": true,
+    "adjacent_frame_mean_absolute_difference": {
+      "minimum": 0.4224645833333333,
+      "median": 0.5345788194444444,
+      "maximum": 0.7937472222222222,
+      "seam": 0.5002604166666667,
+      "first_step": 0.5108888888888888,
+      "before_seam": 0.49429930555555557
+    },
+    "decoded_adjacent_frame_mean_absolute_difference": {
+      "minimum": 0.41818958333333334,
+      "median": 0.5500045138888889,
+      "maximum": 0.8865215277777778,
+      "seam": 0.5088493055555555,
+      "first_step": 0.527225,
+      "before_seam": 0.5048486111111111
+    }
+  }
+}
